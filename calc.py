@@ -7,7 +7,7 @@ delimoe = int(str_input)
 operation = input("+ / * - ^: ")
 
 str_input2 = input("B: ")
-
+#изменение
 delitel = int(str_input2)
 #print(type(delitel))
 result = None
