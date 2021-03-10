@@ -2,8 +2,12 @@
 
 str_command = input ("Please type command a + b or a - b: ")
 
+type_A = ''
 str_A = ''
+
+type_B = ''
 str_B = ''
+
 operation = ''
 
 #2 + 3
@@ -11,15 +15,20 @@ operation = ''
 for letter in str_command:
     print(letter)
     if letter == '+' or letter == '-' or letter == '*' or letter == '/' or letter == '^':
-        operation = letter
+        if str_A == '':
+            type_A = letter
+        elif operation != '':
+            type_B = letter
+        else:
+            operation = letter
     else:
         if operation == '':
             str_A = str_A + letter
         else:
             str_B = str_B + letter
 
-str_A.strip()
-str_B.strip()
+str_A = type_A + str_A.strip()
+str_B = type_B + str_B.strip()
 print(str_A)
 print(str_B)
 
