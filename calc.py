@@ -1,47 +1,50 @@
-str_command = input ("Please type command a + b or a - b: ").replace(' ','')
+input_str = input ("Please type command: ")
 
-type_A = ''
+operation = '+'
+true = False
 str_A = ''
+result = 0
 
-type_B = ''
-str_B = ''
-
-operation = ''
-i = 0
-
-while i < len(str_command) :
-    if str_command[i] == '+' or str_command[i] == '-' or str_command[i] == '*' or str_command[i] == '/' or str_command[i] == '^':
-        if str_A == '':
-            type_A = str_command[i]
-        elif operation != '':
-            type_B = str_command[i]
+for letter in input_str:
+    if letter in "0123456789":
+        true = True
+    if letter in "+ - * / ^" and true:
+        delitel = float(str_A)
+        if operation == '/':
+            if delitel == 0:
+                result = 'Inf'
+            else:
+                result = result / delitel
+        elif operation == "+":
+                result = result + delitel
+        elif operation == "*":
+                result = result * delitel
+        elif operation == "-":
+                result = result - delitel
+        elif operation == "^":
+                result = result ** delitel
         else:
-            operation = str_command[i]
+                result = None
+        operation = letter
+        true = False
+        str_A = ''
     else:
-        if operation == '':
-            str_A += str_command[i]
-        else:
-            str_B += str_command[i]
-    i += 1
+        str_A += letter
 
-delimoe = float(type_A + str_A)
-delitel = float(type_B + str_B)
-
-result = None
-
+delitel = float(str_A)
 if operation == '/':
     if delitel == 0:
         result = 'Inf'
     else:
-        result = delimoe / delitel
+        result = result / delitel
 elif operation == '+':
-    result = delimoe + delitel
+    result = result + delitel
 elif operation == '-':
-    result = delimoe - delitel
+    result = result - delitel
 elif operation == '*':
-    result = delimoe * delitel
+    result = result * delitel
 elif operation == '^':
-    result = delimoe ** delitel
+    result = result ** delitel
 else:
     result = "unknown"
 
